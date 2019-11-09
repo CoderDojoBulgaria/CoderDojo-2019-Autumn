@@ -1,0 +1,20 @@
+{
+  "name": "node-js-introduction",
+  "version": "1.0.0",
+  "description": "Hello, its me",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Mariyan Apostolov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql2": "^2.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^5.21.2"
+  }
+}
