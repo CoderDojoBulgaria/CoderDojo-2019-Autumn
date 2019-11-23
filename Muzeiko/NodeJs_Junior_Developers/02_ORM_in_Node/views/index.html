@@ -56,6 +56,21 @@
                 <input type="submit" value="Create Kitty" />
             </form>
         </div>
+        <div class="page" id="kittypaws_edit">
+            <h1>Kitty Edit</h1>
+            <form method="POST" action="/kittyUpd">
+                <input type="hidden" name="kittyId" />
+
+                <label for="kittyName">Kitty Name:</label>
+                <input type="text" name="kittyName" />
+                <label for="kittyBreed">Kitty Breed:</label>
+                <input type="text" name="kittyBreed" />
+                <label for="kittyPrice">Kitty Price:</label>
+                <input type="number" name="kittyPrice" />
+
+                <input type="submit" value="Edit Kitty" />
+            </form>
+        </div>
         <div class="page" id="bunnypaws">
 
             <table>

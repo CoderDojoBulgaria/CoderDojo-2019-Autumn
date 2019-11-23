@@ -30,7 +30,7 @@ window.onload = function () {
     document.querySelectorAll('button')
         .forEach(function (innerButton) {
             innerButton.addEventListener('click', function (event) {
-                currentPath = '#' + this.innerText.toLowerCase();
+                currentPath = '#' + this.innerText.split('?')[0].toLowerCase();
                 reloadPage();
                 document.querySelector('.page' + currentPath).style.display = 'block';
             });
@@ -44,12 +44,16 @@ window.onload = function () {
             });
 
         function list(event) {
-            currentPath = '#' + this.innerText.toLowerCase();
-            if (this.innerText.toLowerCase() == 'kittypaws_edit') {
-                document.querySelector('#kittypaws_edit input[name="kittyId"]').value = "Test";
-                document.querySelector('#kittypaws_edit input[name="kittyName"]').value = "Test";
-                document.querySelector('#kittypaws_edit input[name="kittyBreed"]').value = "Test";
-                document.querySelector('#kittypaws_edit input[name="kittyPrice"]').value = "0.0s";
+            currentPath = '#' + this.innerText.split('?')[0].toLowerCase();
+            if (this.innerText.split('?')[0].toLowerCase() == 'kittypaws_edit') {
+                var currentLineId = this.innerText.split('?')[1].split('=')[1];
+                var currentLine = dataValues.filter(function (obj) {
+                    return obj.id == currentLineId;
+                })[0];
+                document.querySelector('#kittypaws_edit input[name="kittyId"]').value = currentLine.id;
+                document.querySelector('#kittypaws_edit input[name="kittyName"]').value = currentLine.name;
+                document.querySelector('#kittypaws_edit input[name="kittyBreed"]').value = currentLine.breed;
+                document.querySelector('#kittypaws_edit input[name="kittyPrice"]').value = currentLine.price;
             }
             reloadPage();
             document.querySelector('.page' + currentPath).style.display = 'block';
