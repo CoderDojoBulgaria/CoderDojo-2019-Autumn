@@ -29,6 +29,7 @@
             Това е началната страница.
         </div>
         <div class="page" id="kittypaws">
+            <button>Kittypaws_Create</button>
             <table class="table">
                 <thead>
                     <tr>
@@ -41,6 +42,19 @@
                 <tbody class="tbody">
                 </tbody>
             </table>
+        </div>
+        <div class="page" id="kittypaws_create">
+            <h1>Kitty Create</h1>
+            <form method="POST" action="/kittyAdd">
+                <label for="kittyName">Kitty Name:</label>
+                <input type="text" name="kittyName" />
+                <label for="kittyBreed">Kitty Breed:</label>
+                <input type="text" name="kittyBreed" />
+                <label for="kittyPrice">Kitty Price:</label>
+                <input type="number" name="kittyPrice" />
+
+                <input type="submit" value="Create Kitty" />
+            </form>
         </div>
         <div class="page" id="bunnypaws">
 

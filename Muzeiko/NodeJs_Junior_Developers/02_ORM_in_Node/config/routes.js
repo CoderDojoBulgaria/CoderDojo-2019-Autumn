@@ -5,6 +5,7 @@ module.exports = {
     configureRoutes: (app) => {
         app.get('/', homeController.homeIndex);
         app.get('/kittypaws', kittyController.getAllKitties);
+        app.post('/kittyAdd', kittyController.kittyInsert);
         return app;
     }
 }
