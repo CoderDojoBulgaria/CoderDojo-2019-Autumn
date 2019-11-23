@@ -9,7 +9,7 @@ module.exports = {
         return new Promise(function(resolved, rejected) {
             kittyEnttity
                 .kittyConfig(sequelize, Sequelize)
-                .sync({ force: true })
+                .sync({ alter: false })
                 .then(() => {
                     resolved(app);
                 })
