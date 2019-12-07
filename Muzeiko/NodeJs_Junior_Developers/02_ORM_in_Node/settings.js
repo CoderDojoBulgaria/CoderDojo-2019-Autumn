@@ -8,5 +8,6 @@ module.exports = {
     mysqlLogin: {
         host: 'localhost',
         dialect: 'mysql'
-    }
+    },
+    cookieName: 'WebAppUser'
 }

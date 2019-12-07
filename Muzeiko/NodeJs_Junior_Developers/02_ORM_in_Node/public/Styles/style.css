@@ -2,3 +2,7 @@
     padding: 30px;
     border: 1px solid black;
 }
+
+.user-window {
+    float: right;
+}

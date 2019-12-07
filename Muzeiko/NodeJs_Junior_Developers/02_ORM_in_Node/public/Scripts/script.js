@@ -14,6 +14,7 @@ window.onload = function () {
             .forEach(function (innerPage) {
                 innerPage.style.display = 'none';
             });
+        document.querySelector('input[name="prevUrl"]').value = currentPath;
         dbCall(currentPath);
     };
 
@@ -79,11 +80,13 @@ window.onload = function () {
                         '<td>' + respApp[index]['name'] + '</td>' +
                         '<td>' + respApp[index]['breed'] + '</td>' +
                         '<td>' + respApp[index]['price'] + '</td>' +
+                        '<td>' + respApp[index]['create_user'] + '</td>' +
+                        '<td>' + respApp[index]['last_update_user'] + '</td>' +
                         '<td>' + 
                             '<button>Kittypaws_Edit?id=' + respApp[index]['id'] + '</button>' + 
                         '</td>' +
                         '<td>' + 
-                            '<form method="POST" action="/kittyDelete"><input type="hidden" name="id" value="' + respApp[index]['id'] + '"/><input type="submit" value="Delete" /></form>' +
+                            '<form method="POST" action="/kittyDel"><input type="hidden" name="kittyId" value="' + respApp[index]['id'] + '"/><input type="submit" value="Delete" /></form>' +
                         '</td>' +
                         '</tr>';
                 }

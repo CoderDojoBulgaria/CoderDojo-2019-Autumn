@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const settings = require('../settings');
 const kittyEnttity = require('../entities/kittyEntity');
+const userEnttity = require('../entities/userEntity');
 
 const sequelize = new Sequelize(settings.logIn.database, settings.logIn.username, settings.logIn.password, settings.mysqlLogin);
 
@@ -11,7 +12,15 @@ module.exports = {
                 .kittyConfig(sequelize, Sequelize)
                 .sync({ alter: false })
                 .then(() => {
-                    resolved(app);
+                    userEnttity
+                        .userConfig(sequelize, Sequelize)
+                        .sync({ alter: false })
+                        .then(() => {
+                            resolved(app);
+                        })
+                        .catch((err) => {
+                            rejected(err);
+                        })
                 })
                 .catch((err) => {
                     rejected(err);

@@ -23,10 +23,44 @@
         <button>BunnyPaws</button>
         <button>ChickenPaws</button>
         <button>About</button>
+        <div class="user-window">
+            <% if (username) { %>
+                <div class="logged">
+                    <p name="username"><%- username -%></p>
+                    <form method="POST" action="/logOut">
+                        <input type="hidden" name="prevUrl" />
+                        <input type="submit" value="Log Out" />
+                    </form>
+                </div>
+            <% } else { %>
+                <div class="unlogged">
+                    <button>Register</button>
+                    <form method="POST" action="/logIn">
+                        <input type="hidden" name="prevUrl" />
+                        <label for="username">Username: </label>
+                        <input type="text" name="username" />
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" />
+        
+                        <input type="submit" value="Log In" />
+                    </form>
+                </div>
+            <% } %>
+        </div>
     </nav>
     <main>
         <div class="page" id="home">
             Това е началната страница.
+        </div>
+        <div class="page" id="register">
+            <form method="POST" action="/register">
+                <label for="username">Username: </label>
+                <input type="text" name="username" />
+                <label for="password">Password: </label>
+                <input type="password" name="password" />
+
+                <input type="submit" value="Register" />                
+            </form>
         </div>
         <div class="page" id="kittypaws">
             <button>Kittypaws_Create</button>
@@ -37,6 +71,8 @@
                         <th>Name</th>
                         <th>Breed</th>
                         <th>Price</th>
+                        <th>Create User</th>
+                        <th>Last Change User</th>
                     </tr>
                 </thead>
                 <tbody class="tbody">

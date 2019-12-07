@@ -3,7 +3,6 @@ const Model = Sequelize.Model;
 class Kitty extends Model { }
 module.exports = {
     kittyConfig: function (sequelize, Sequelize) {
-
         Kitty.init({
             name: {
                 type: Sequelize.STRING,
@@ -15,6 +14,14 @@ module.exports = {
             },
             price: {
                 type: Sequelize.DECIMAL(10, 2),
+                allowNull: false
+            },
+            create_user: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            last_update_user: {
+                type: Sequelize.STRING,
                 allowNull: false
             }
         }, {
